@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexCharts</title>
+    <script src="../apexcharts.min.js"></script>
+</head>
+
+<body>
+
+    <div id="grafico"></div>
+    <button onclick="alterarDados()">Alterar Dados</button>
+
+    <script>
+
+        let el = document.querySelector("#grafico");
+        let options = {
+            chart: {
+                type: 'bar',
+                width: 700,
+                height: 500
+            },
+            series: [
+                {
+                    name: 'Dados',
+                    data: [10, 20, 30]
+                }
+            ],
+        };
+        let chart = new ApexCharts(el, options);
+        chart.render();
+
+        // ======================================================
+        function alterarDados() {
+            chart.updateSeries(
+                [
+                    {
+                        data: [15, 25, 35]
+                    }
+                ]
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>

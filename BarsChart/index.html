@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexCharts - Bars</title>
+    <script src="../apexcharts.min.js"></script>
+</head>
+
+<body>
+    <div id="grafico"></div>
+
+    <script>
+        // Elemto HTML aonde o gráfico vai ser renderizado
+        let el = document.getElementById("grafico");
+        // Definições das opções do gráfico
+        let options = {
+            chart: {
+                type: 'bar',
+                width: 700,
+                height: 500
+            },
+            series: [{
+                    name: 'Homens',
+                    data: [12, 36, 75, 45, 25, 45, 30],
+
+                },
+                {
+                    name: 'Mulheres',
+                    data: [15, 39, 78, 48, 30, 48, 36],
+
+                },
+            ],
+            title: {
+                text: 'Dados estatisticos',
+                align: 'center'
+            },
+            labels: ['2.ª feira', '3.ª feira', '4.ª feira', '5.ª feira', '6.ª feira', 'Sábado', 'Domingo'],
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    dataLabels: {
+                        position: 'bottom'
+                    }
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 100
+            },
+            grid: {
+                show: true,
+                xaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            colors: ['#4466FF', '#FF6688']
+        };
+        // Cria o objeto a partir da biblioteca ApexCharts
+        let chart = new ApexCharts(el, options);
+        // Renderização do gráfico
+        chart.render();
+    </script>
+
+</body>
+
+</html>
